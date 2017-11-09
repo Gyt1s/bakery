@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans)
+
+body 
+{
+	font-family: 'Open Sans', sans-serif
+}
+
+.table 
+{
+	border: 1px solid blue;
+}
+.table-header
+{
+	background: blanchedalmond;
+    font-weight: 600
+}
+
