@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<table class="table">
+<table id="hand-made" class="table">
 	<thead class="table-header">
 		<tr>
 			<th rowspan="2"> Pavadinimas</th>
@@ -127,12 +127,9 @@
 		</tr>
 
 	</tbody>
+</table>
 
-
-<script type="text/javascript">
-
-
-</script>
+<?php @include_once('app/app.php')?>
 
 </body>
 </html>
