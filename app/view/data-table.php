@@ -1,23 +1,27 @@
 <?php
 
 $days = $keys = '';
+$rows = [];
+
 
 	foreach ($data as $key => $value) {	
 		$days .= "<th colspan=\"5\">$key</th>";
 		$keys .= "<th>VL</th><th>PG</th><th>PR</th><th>SG</th><th>GL</th>";
 
-	foreach ($value as $name => $data) {
-		# code...
-		//name 				//data
-		"Varskes"  => [6, 26, 13, 1, 12],
-	foreach ($data as $amount) {
-		# code...
-		// amount 
-		3
-	}
-	}
 
-		}
+		foreach ($value as $name => $data) {
+
+				if (!isset($rows[$name]))
+				{
+					$rows[$name] .= "<td>$name</td>";
+				}
+
+				foreach ($data as $amount) {
+					// amount 
+					$rows[$name] .= ("<td>$amount</td>");
+				}
+			}
+	}
 ?>
 
 
@@ -35,10 +39,20 @@ $days = $keys = '';
 			?>
 		</tr>
 	</thead>
+	<tbody>
+		
+		<?php
+		foreach ($rows as $row) {
+			echo '<tr>' . $row . '</tr>';
+		}
+
+		?>
+
+	</tbody>
 </table>
 
 
-<?php 
+<?php
 /*
 var_dump($data);
 return;
