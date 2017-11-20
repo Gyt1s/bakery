@@ -2,17 +2,14 @@
 
 $new_data = ($_POST);
 
-var_dump ($new_data);
-
+//reading data
 $existing_data = json_decode (file_get_contents('data/bakery-data.json'));
-//var_dump($existing_data);
 
 $existing_data = objectToArray ($existing_data);
 
-//var_dump($existing_data);
-//var_dump( (array) ($existing_data);
-
 updateData($existing_data, $new_data);
+
+file_put_contents('data/bakery-data.json', json_encode($existing_data));
 
 
 function formatOfData(array &$data)
@@ -51,24 +48,30 @@ function updateData (&$existing_data, $new_data)
 		}	
 		else
 		{
-			echo "CREATE PRODUCT";
+			createProduct ();
 		}
 	}
 	else
 	{
-		echo "CREATE DATE";
-		$existing_data[$new_data ['date']] = []
 
-		echo "CREATE PRODUCT";
+		$existing_data[$new_data['data']] = [];
+
+		$existing_data = createNewProduct($existing_data, $new_data);
+	}
+}
+
+function createNewProduct ($existing_data, $new_data)
+{
 		$existing_data [ $new_data ['data'] ][$new_data ['product'] ] = [
 
-			$new_data["vl"],
-			$new_data["pg"],
-			$new_data["pr"],
-			$new_data["sg"],
-			$new_data["gl"]
+			(int) $new_data["VL"],
+			(int) $new_data["PG"],
+			(int) $new_data["PR"],
+			(int) $new_data["SG"],
+			(int) $new_data["GL"]
 		];
-	}
+	return $existing_data;
+	
 }
 
 
