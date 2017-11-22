@@ -13,9 +13,15 @@
 		<div> Preke : </div>
 
 		<select name="product">
-			<option value="1">Aguonele</option>
-			<option value="2">Varskes</option>
 
+			<?php
+				$products= json_decode (file_get_contents('data/products.json'), true);
+
+				foreach ($products as $key => $value) {
+
+					echo "<option value=\"$key\">$value</option>";
+				}
+			?>
 		</select>
 
 		<div> Vakarysktis likutis : </div> 

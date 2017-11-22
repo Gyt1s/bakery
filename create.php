@@ -1,6 +1,24 @@
 <?php 
 
 $new_data = ($_POST);
+//TODO
+// check if all parameters are provided
+
+/*$required_fields = ["date", "product", "VL", "PG", "PR", "SG", "GL"];
+
+foreach ($required_fields as $value) {
+
+	$validData = true;
+
+	if (!isset($new_data[$value]) || empty ($new_data[$value]))
+	{
+		$validData = false;
+		echo "nerastas parametras: $value <br>";
+	}
+}
+
+if (!$validData)
+	return;*/
 
 //reading data
 $existing_data = json_decode (file_get_contents('data/bakery-data.json'));
@@ -10,6 +28,7 @@ $existing_data = objectToArray ($existing_data);
 updateData($existing_data, $new_data);
 
 file_put_contents('data/bakery-data.json', json_encode($existing_data));
+
 
 
 function formatOfData(array &$data)
@@ -48,7 +67,7 @@ function updateData (&$existing_data, $new_data)
 		}	
 		else
 		{
-			createProduct ();
+			//createProduct ();
 		}
 	}
 	else
@@ -73,6 +92,11 @@ function createNewProduct ($existing_data, $new_data)
 	return $existing_data;
 	
 }
+
+
+
+
+
 
 
 
