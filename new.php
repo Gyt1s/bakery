@@ -12,32 +12,37 @@
 
 		<div> Preke : </div>
 
-		<select name="product">
+		<select name="product_id">
 
 			<?php
-				$products= json_decode (file_get_contents('data/products.json'), true);
 
-				foreach ($products as $key => $value) {
+				@include_once('app/database.php');
 
-					echo "<option value=\"$key\">$value</option>";
+				$query = "SELECT `id`,`name` FROM `bakery_products` WHERE `deleted_at` IS NULL ORDER BY `name` ASC";
+
+				$result = db_query ($query);
+
+				foreach ($result as $value) {
+	
+					echo '<option value="' . $value['id'] . '">' . $value['name'] . '</option>';
 				}
 			?>
 		</select>
 
 		<div> Vakarysktis likutis : </div> 
-		<input type="number" name="VL"> <br>
+		<input type="number" name="initial"> <br>
 
 		<div> Pagaminta : </div>
-		<input type="numbe" name="PG"> <br>
+		<input type="numbe" name="produced"> <br>
 
 		<div> Parduota : </div>
-		<input type="number" name="PR"> <br>
+		<input type="number" name="damaged"> <br>
 
 		<div> Sugadinta : </div>
-		<input type="number" name="SG"> <br>
+		<input type="number" name="sold"> <br>
 
 		<div> Galutinis likutis : </div>
-		<input type="number" name="GL"> <br>
+		<input type="number" name="closed"> <br>
 
 		<input type="submit" value="Issaugoti duomenys">
 
