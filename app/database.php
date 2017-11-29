@@ -31,8 +31,10 @@ function db_query (string $query)
 	return $result;
 }
 
-function db_insertQuery(string $tableName, array $data)
+function db_insertQuery(string $tableName, array $data, bool $uuid = false)
 {
+	if($uuid)
+		$data['id'] = uniqid();
 
 	$keys = $values = '';
 

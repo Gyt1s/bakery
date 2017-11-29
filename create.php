@@ -23,7 +23,9 @@ if (!$validData)
 
 @include_once('app/database.php');
 
-$query = db_insertQuery ("bakery_products_history", $new_data);
+
+
+$query = db_insertQuery ("bakery_products_history", $new_data, true);
 
 
 $result = db_query ($query);
