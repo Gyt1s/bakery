@@ -4,7 +4,7 @@ $new_data = ($_POST);
 //TODO
 // check if all parameters are provided
 
-/*$required_fields = ["date", "product", "VL", "PG", "PR", "SG", "GL"];
+/*$required_fields = ["date", "product", "initial", "produced", "damaged", "sold", "closed"];
 
 foreach ($required_fields as $value) {
 
@@ -20,8 +20,18 @@ foreach ($required_fields as $value) {
 if (!$validData)
 	return;*/
 
+
+@include_once('app/database.php');
+
+$query = db_insertQuery ("bakery_products_history", $new_data);
+
+
+$result = db_query ($query);
+
+print_r($result);
+
 //reading data
-$existing_data = json_decode (file_get_contents('data/bakery-data.json'));
+/*$existing_data = json_decode (file_get_contents('data/bakery-data.json'));
 
 $existing_data = objectToArray ($existing_data);
 
@@ -91,13 +101,5 @@ function createNewProduct ($existing_data, $new_data)
 		];
 	return $existing_data;
 	
-}
-
-
-
-
-
-
-
-
+}*/
 

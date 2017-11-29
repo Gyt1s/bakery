@@ -31,6 +31,64 @@ function db_query (string $query)
 	return $result;
 }
 
+function db_insertQuery(string $tableName, array $data)
+{
+
+	$keys = $values = '';
+
+	foreach ($data as $key => $value) {
+		
+		$keys .= "`$key` , ";
+
+		$values .= "'$value' , ";
+	}
+
+	$keys = rtrim($keys, ", ");
+
+	$values = rtrim($values, ", ");
+
+	$query = "INSERT INTO `$tableName` ($keys) VALUES ($values)";
+
+
+	die($query);
+}
+/*
+		`date`,
+		`product_id`,
+		`initial`,
+		`produced`,
+		`damaged`,
+		`sold`,
+		`closed`) VALUES (" .
+		$new_data['date'] . "," .
+		$new_data['product'] . "," .
+		$new_data['initial'] . "," .
+		$new_data['produced'] . "," .
+		$new_data['damaged'] . "," .
+		$new_data['sold'] . "," .
+		$new_data['closed'] . ")";
+
+	$query = "INSERT INTO `bakery_products_history` (
+
+		`date`,
+		`product_id`,
+		`initial`,
+		`produced`,
+		`damaged`,
+		`sold`,
+		`closed`) VALUES (" .
+		$new_data['date'] . "," .
+		$new_data['product'] . "," .
+		$new_data['initial'] . "," .
+		$new_data['produced'] . "," .
+		$new_data['damaged'] . "," .
+		$new_data['sold'] . "," .
+		$new_data['closed'] . ")";
+
+}
+
+return;*/
+
 /*$result = $conn->query('SHOW TABLES');
 
 print_r ($result);

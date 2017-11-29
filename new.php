@@ -8,11 +8,11 @@
 	<form method="POST" action="create.php">
 
 		<div> Data : </div> 
-		<input type="date" name="data"> <br>
+		<input type="date" name="date"> <br>
 
 		<div> Preke : </div>
 
-		<select name="product_id">
+		<select name="product">
 
 			<?php
 
@@ -33,7 +33,7 @@
 		<input type="number" name="initial"> <br>
 
 		<div> Pagaminta : </div>
-		<input type="numbe" name="produced"> <br>
+		<input type="number" name="produced"> <br>
 
 		<div> Parduota : </div>
 		<input type="number" name="damaged"> <br>
