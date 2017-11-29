@@ -4,7 +4,7 @@ $new_data = ($_POST);
 //TODO
 // check if all parameters are provided
 
-/*$required_fields = ["date", "product", "initial", "produced", "damaged", "sold", "closed"];
+$required_fields = ["date", "product_id", "initial", "produced", "damaged", "sold", "closed"];
 
 foreach ($required_fields as $value) {
 
@@ -18,7 +18,7 @@ foreach ($required_fields as $value) {
 }
 
 if (!$validData)
-	return;*/
+	return;
 
 
 @include_once('app/database.php');

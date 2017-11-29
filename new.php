@@ -12,7 +12,7 @@
 
 		<div> Preke : </div>
 
-		<select name="product">
+		<select name="product_id">
 
 			<?php
 
