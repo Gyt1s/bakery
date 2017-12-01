@@ -8,32 +8,38 @@ $products= json_decode (file_get_contents('data/products.json'), true);
 
 ksort($data);
 */
-	foreach ($products as $value) {	
+	foreach ($products as $value)
+	{	
 
 		if (!isset($rows[$value['id']]))
 		{
-			$rows[$value['id']] = '<td>' . $value['name'] . '</td>';
+			$rows[$value['id']] = [];
+			$rows[$value['id']]['name'] = '<td>' . $value['name'] . '</td>';
 		}
-
 	}
 
 	foreach ($productHistory as $value)
 	{
-		/*print_r($value);
-		die();*/
 
 		if  (!isset($days[$value['date']]))
 		{
-
 		$days[$value['date']] = $value ['date'];
 		$keys .= "<th>VL</th><th>PG</th><th>PR</th><th>SG</th><th>GL</th>";
-/*
-		if (!isset($rows[$value['product_id']))
-			{
-				$rows[$value['product id']] .= '<td>' . $value['product_id'] . '</td>';
-			}*/
-
+		
+		foreach ($rows as &$product)
+		{	
+			$product[$value['date']] = '<td></td><td></td><td></td><td></td><td></td>';
 		}
+		}
+
+
+		/*$rows[$value['product_id']] .= '<td>' . $value['initial'] . '<td>';
+		$rows[$value['product_id']] .= '<td>' . $value['produced'] . '<td>';
+		$rows[$value['product_id']] .= '<td>' . $value['sold'] . '<td>';
+		$rows[$value['product_id']] .= '<td>' . $value['damaged'] . '<td>';
+		$rows[$value['product_id']] .= '<td>' . $value['closed'] . '<td>';
+*/
+
 		/*foreach ($products as $key => $name) {	
 
 				if (!isset($rows[$key]))
@@ -55,8 +61,7 @@ ksort($data);
 				}
 			}*/
 	}
-
-
+	
 ?>
 
 
@@ -80,8 +85,16 @@ ksort($data);
 	<tbody>
 		
 		<?php
-		foreach ($rows as $key => $value) {
-			echo '<tr>' . $value . '</tr>';
+		foreach ($rows as $data) 
+		{
+			echo '<tr>';
+
+			foreach ($data as $key => $value) 
+			{
+				echo $value;
+			}
+
+			echo '</tr>';
 		}
 
 		?>
