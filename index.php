@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+
+include_once('app/dto/Bun.php');
+
+use app\dto\Bun;
+
+$bun = new app\dto\Bun ();
+
+
+
+?>
+
+
+<!--DOCTYPE html>
 <html>
 <head>
 
@@ -11,7 +24,7 @@
 <a class ="new-class" href="new.php">Ivesti naujus dienos duomenis</a>
 
 
-<?php @include_once('app/app.php'); ?>
+<?php // @include_once('app/app.php'); ?>
 
 </body>
-</html>
+</html> -->
