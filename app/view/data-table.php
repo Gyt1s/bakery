@@ -23,15 +23,17 @@ ksort($data);
 
 		if  (!isset($days[$value['date']]))
 		{
-		$days[$value['date']] = $value ['date'];
-		$keys .= "<th>VL</th><th>PG</th><th>PR</th><th>SG</th><th>GL</th>";
-		
-		foreach ($rows as &$product)
-		{	
-			$product[$value['date']] = '<td></td><td></td><td></td><td></td><td></td>';
-		}
+			$days[$value['date']] = true;
+			$keys .= "<th>VL</th><th>PG</th><th>PR</th><th>SG</th><th>GL</th>";
+			
+			foreach ($rows as &$product)
+			{	
+				$product[$value['date']] = '<td></td><td></td><td></td><td></td><td></td>';
+			}
 		}
 
+		$rows[$value['product_id']][$value['date']] = '<td>' . $value['initial'] . '</td>' . '<td>' . $value['produced'] . '</td>' . '<td>' . $value['sold'] . '</td>' . '<td>' . $value['damaged'] . '</td>' . '<td>' . $value['closed'] . '</td>';
+	
 
 		/*$rows[$value['product_id']] .= '<td>' . $value['initial'] . '<td>';
 		$rows[$value['product_id']] .= '<td>' . $value['produced'] . '<td>';
@@ -61,6 +63,8 @@ ksort($data);
 				}
 			}*/
 	}
+
+
 	
 ?>
 
