@@ -1,10 +1,11 @@
 <?php
 
 include_once('app/dto/Bun.php');
+use app\dto\Strawberry;
 
-use app\dto\Bun;
 
-$bun = new app\dto\Bun ();
+$bun = Strawberry();
+$bun->;
 
 
 
