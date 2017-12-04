@@ -35,13 +35,6 @@ ksort($data);
 		$rows[$value['product_id']][$value['date']] = '<td>' . $value['initial'] . '</td>' . '<td>' . $value['produced'] . '</td>' . '<td>' . $value['sold'] . '</td>' . '<td>' . $value['damaged'] . '</td>' . '<td>' . $value['closed'] . '</td>';
 	
 
-		/*$rows[$value['product_id']] .= '<td>' . $value['initial'] . '<td>';
-		$rows[$value['product_id']] .= '<td>' . $value['produced'] . '<td>';
-		$rows[$value['product_id']] .= '<td>' . $value['sold'] . '<td>';
-		$rows[$value['product_id']] .= '<td>' . $value['damaged'] . '<td>';
-		$rows[$value['product_id']] .= '<td>' . $value['closed'] . '<td>';
-*/
-
 		/*foreach ($products as $key => $name) {	
 
 				if (!isset($rows[$key]))

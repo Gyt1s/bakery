@@ -5,6 +5,12 @@ body
 	font-family: 'Open Sans', sans-serif
 }
 
+
+
+td,td {
+	border: 1px solid;
+	text-align: center;
+}
 .table 
 {
 	border: 1px solid black;
