@@ -9,10 +9,49 @@
 namespace app;
 
 
+use app\controller\ProductController;
+
 class Bakery
 {
     public function __construct()
     {
+        $method = $_SERVER['REQUEST_METHOD'];
+        $action = $_POST['action'];
+        $view = $_POST['view'];
+
+        if ($method == 'GET')
+        {
+            switch ($view)
+            {
+                case 'product':
+
+                    if ($action == 'new')
+                    $this->show ((new ProductController())-> create());
+
+                    break;
+
+            }
+
+            print_r($_GET);
+        }
+        elseif ($method == 'POST') {
+            switch ($view) {
+                case 'product':
+
+                    if ($action == 'new')
+                        $this->show((new ProductController())->create());
+
+                    break;
+
+            }
+        }
+
         echo "Bakery online";
     }
+
+    private function show (string $text)
+    {
+        echo $text;
+    }
+
 }

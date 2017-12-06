@@ -6,7 +6,7 @@
 </head>
 <body style="text-align: center;">
 
-<form method="POST" action="create.php">
+<form method="POST" action="?view=product&action=create">
 
 
     <div> EAN :</div>
