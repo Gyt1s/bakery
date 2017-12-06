@@ -32,7 +32,7 @@ class Bakery
 
             }
 
-            
+
         }
         elseif ($method == 'POST') {
             switch ($view) {

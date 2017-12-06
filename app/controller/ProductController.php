@@ -9,6 +9,8 @@
 namespace app\controller;
 
 
+use app\model\Product;
+
 class ProductController
 {
     public function create(): string
@@ -18,6 +20,9 @@ class ProductController
 
     public function store (): string
     {
+        $model = new Product();
+        $model->
+
         print_r($_POST);
 
         return '';
