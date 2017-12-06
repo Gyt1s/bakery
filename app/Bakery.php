@@ -16,8 +16,8 @@ class Bakery
     public function __construct()
     {
         $method = $_SERVER['REQUEST_METHOD'];
-        $action = $_POST['action'];
-        $view = $_POST['view'];
+        $view = $_GET['view'];
+        $action = $_GET['action'];
 
         if ($method == 'GET')
         {
@@ -32,7 +32,7 @@ class Bakery
 
             }
 
-            print_r($_GET);
+            
         }
         elseif ($method == 'POST') {
             switch ($view) {
