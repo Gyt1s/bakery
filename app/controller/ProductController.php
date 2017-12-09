@@ -57,7 +57,7 @@ class ProductController
 
             $date .=  '</tr>';
         }
-        echo "<table>";
+        echo "<table class='table table-success'>";
         echo "<thead>";
         echo "<tr>";
         echo ($header);
