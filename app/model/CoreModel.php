@@ -32,15 +32,13 @@ class CoreModel
     protected function db_query(string $query)
     {
         $this->connect();
-        $this->conn = db_connect();
-
         $result = $this->conn->query($query);
-
 
         if ($result) {
             $this->conn->close();
             return $result;
         }
+
         print_r($this->conn);
         $this->conn->close();
         die();

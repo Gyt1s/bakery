@@ -26,7 +26,15 @@ class ProductController
          $model = new Product();
          $model->create($_POST);
 
+         //Redirecting to list
+         header('Location: ?view=product&action=list');
+         exit();
+    }
 
-        return '';
+    public function list()
+    {
+        $model = new Product();
+        $model->list ();
+
     }
 }

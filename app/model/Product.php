@@ -13,22 +13,25 @@ use app\model\interfaces\Manageable;
 
 class Product extends CoreModel implements Manageable, Destroyable
 {
- public function create(array $data)
- {
-     print_r($data);
+    public function create(array $data)
+    {
+        print_r($data);
 
-     print_r($this->generateInsertQuery('bakery_product', $data, true));
+        $query = $this->generateInsertQuery('bakery_products', $data, true);
+
+        print_r($this->db_query($query));
 
 
- }
- public function delete()
- {
-     // TODO: Implement delete() method.
- }
+    }
 
- public function destroy()
- {
-     // TODO: Implement destroy() method.
- }
+    public function delete()
+    {
+        // TODO: Implement delete() method.
+    }
+
+    public function destroy()
+    {
+        // TODO: Implement destroy() method.
+    }
 
 }

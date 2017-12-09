@@ -31,7 +31,7 @@
     <div> Pardavimo kaina :</div>
     <input type="number" step="0.001" name="sale_price"> <br>
 
-    <input type="submit" value="Issaugoti duomenys">
+    <input type="submit" value="Issaugoti duomenys"> <br>
 
 </form>
 </body>

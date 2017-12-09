@@ -10,6 +10,7 @@ namespace app;
 
 
 use app\controller\ProductController;
+use app\model\Product;
 
 class Bakery
 {
@@ -27,6 +28,9 @@ class Bakery
 
                     if ($action == 'new')
                     $this->show ((new ProductController())-> create());
+
+                    elseif ($action == 'list')
+                        (new ProductController())->list ();
 
                     break;
 
