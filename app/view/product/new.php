@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Nauji duomenys</title>
-    <link rel="stylesheet" href="css/app.css">
-</head>
-<body style="text-align: center;">
-
+<div style="text-align: center">
 <form method="POST" action="?view=product&action=create">
 
-
-    <div> EAN :</div>
+    <div> EAN : </div>
     <input type="number" name="ean"> <br>
 
     <div> Mato Vienetas :</div>
@@ -31,8 +23,7 @@
     <div> Pardavimo kaina :</div>
     <input type="number" step="0.001" name="sale_price"> <br>
 
-    <input type="submit" value="Issaugoti duomenys"> <br>
+    <input type="submit" class="btn btn-dark" value="Issaugoti duomenys"> <br>
 
 </form>
-</body>
-</html>
+</div>
