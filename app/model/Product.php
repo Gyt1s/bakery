@@ -13,11 +13,13 @@ use app\model\interfaces\Manageable;
 
 class Product extends CoreModel implements Manageable, Destroyable
 {
+    protected $table = 'bakery_products';
+
     public function create(array $data)
     {
         print_r($data);
 
-        $query = $this->generateInsertQuery('bakery_products', $data, true);
+        $query = $this->generateInsertQuery($data, true);
 
         print_r($this->db_query($query));
 

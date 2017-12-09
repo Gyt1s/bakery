@@ -34,7 +34,39 @@ class ProductController
     public function list()
     {
         $model = new Product();
-        $model->list ();
+        $result = ($model->list ());
+        $header = '';
+        $date = '';
 
+        foreach ($result as $item)
+        {
+            if ($header == '')
+            {
+                foreach ($item as $key => $value)
+                {
+                    $header .= '<th>' . $key . '</th>';
+                }
+            }
+
+            $date .= '<tr>';
+
+            foreach ($item as $key => $value)
+            {
+                $date .= '<td>' . $value .= '</td>';
+            }
+
+            $date .=  '</tr>';
+        }
+        echo "<table>";
+        echo "<thead>";
+        echo "<tr>";
+        echo ($header);
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+        echo ($date);
+        echo  "</tbody>";
+        echo "</table>";
     }
+
 }
