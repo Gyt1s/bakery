@@ -11,6 +11,6 @@ namespace app\model\interfaces;
 
 interface Manageable
 {
-    public function create ();
+    public function create (array $data);
 
 }

@@ -20,10 +20,12 @@ class ProductController
 
     public function store (): string
     {
-        $model = new Product();
-        $model->
+        //This rows doing same
+        //Product::create($_POST);
+        //(new Product())->create($_POST);
+         $model = new Product();
+         $model->create($_POST);
 
-        print_r($_POST);
 
         return '';
     }

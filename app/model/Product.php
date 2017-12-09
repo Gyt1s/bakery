@@ -8,13 +8,27 @@
 
 namespace app\model;
 
-
+use app\model\interfaces\Destroyable;
 use app\model\interfaces\Manageable;
 
-class Product extends CoreModel implements Manageable
+class Product extends CoreModel implements Manageable, Destroyable
 {
- public function create()
+ public function create(array $data)
  {
-     
+     print_r($data);
+
+     print_r($this->generateInsertQuery('bakery_product', $data, true));
+
+
  }
+ public function delete()
+ {
+     // TODO: Implement delete() method.
+ }
+
+ public function destroy()
+ {
+     // TODO: Implement destroy() method.
+ }
+
 }

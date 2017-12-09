@@ -46,7 +46,7 @@ class CoreModel
         die();
     }
 
-    protected function insertQuery(string $tableName, array $data, bool $uuid = false): string
+    protected function generateInsertQuery(string $tableName, array $data, bool $uuid = false): string
     {
         if ($uuid)
             $data['id'] = uniqid();

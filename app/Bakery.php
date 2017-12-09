@@ -38,15 +38,15 @@ class Bakery
             switch ($view) {
                 case 'product':
 
-                    if ($action == 'new')
-                        $this->show((new ProductController())->create());
+                    if ($action == 'create')
+                        $this->show((new ProductController())->store());
 
                     break;
 
             }
         }
 
-        echo "Bakery online";
+       // echo "Bakery online";
     }
 
     private function show (string $text)
