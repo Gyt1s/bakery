@@ -13,9 +13,11 @@ use app\model\Product;
 
 class ProductController
 {
-    public function create(): string
+    public function create()
     {
-        return file_get_contents('app/view/product/new.php');
+        $template = new TemplateEngineController('new-product');
+        $template->echoOutput();
+
     }
 
     public function store (): string
@@ -57,16 +59,12 @@ class ProductController
 
             $date .=  '</tr>';
         }
-        echo "<table class='table table-success'>";
-        echo "<thead>";
-        echo "<tr>";
-        echo ($header);
-        echo "</tr>";
-        echo "</thead>";
-        echo "<tbody>";
-        echo ($date);
-        echo  "</tbody>";
-        echo "</table>";
+
+        $template = new TemplateEngineController('table-list');
+        $template->set('header', $header);
+        $template->set('date', $date);
+        $template-> echoOutput();
+
     }
 
 }
