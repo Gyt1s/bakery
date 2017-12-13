@@ -2,18 +2,18 @@
     <form method="POST" action="?view=bakery-users&action=create"">
 
     <div> Name : </div>
-    <input type="date" name="date"> <br>
+    <input type="text" name="text"> <br>
 
     <div> Surname : </div>
-    <input type="number" name="initial"> <br>
+    <input type="text" name="surname"> <br>
 
     <div> Email : </div>
-    <input type="number" name="produced"> <br>
+    <input type="email" name="email"> <br>
 
     <div> Password : </div>
-    <input type="number" name="damaged"> <br>
+    <input type="password" name="password"> <br>
 
-    <input type="submit" value="Issaugoti duomenys">
+    <input type="submit" value="Prisijungti">
 
 
     </form>

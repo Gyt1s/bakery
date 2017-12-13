@@ -21,37 +21,35 @@ class Bakery
         $view = $_GET['view'];
         $action = $_GET['action'];
 
-        if ($method == 'GET')
-        {
-            switch ($view)
-            {
+        if ($method == 'GET') {
+            switch ($view) {
                 case 'product':
 
                     if ($action == 'new')
-                     (new ProductController())-> create();
+                        (new ProductController())->create();
 
                     elseif ($action == 'list')
-                        (new ProductController())->list ();
+                        (new ProductController())->list();
 
                     break;
 
                 case 'product-history' :
 
-                        if ($action == 'new')
-                            (new ProductHistoryController())-> create();
+                    if ($action == 'new')
+                        (new ProductHistoryController())->create();
 
-                        elseif ($action == 'list')
-                            (new ProductHistoryController())->list ();
+                    elseif ($action == 'list')
+                        (new ProductHistoryController())->list();
 
-                        break;
+                    break;
 
                 case 'bakery-users' :
 
                     if ($action == 'new')
-                        (new bakeryUsersController())-> create();
+                        (new bakeryUsersController())->create();
 
                     elseif ($action == 'list')
-                        (new bakeryUsersController ())->list ();
+                        (new bakeryUsersController ())->list();
 
                     break;
 
@@ -59,8 +57,7 @@ class Bakery
             }
 
 
-        }
-        elseif ($method == 'POST') {
+        } elseif ($method == 'POST') {
             switch ($view) {
                 case 'product-history':
 
@@ -70,9 +67,16 @@ class Bakery
                     break;
 
             }
+        } elseif ($method == 'POST') {
+            switch ($view) {
+                case 'bakery-users':
+
+                    if ($action == 'create')
+                        (new bakeryUsersController())->store();
+
+                    break;
+            }
+
         }
-
-       // echo "Bakery online";
     }
-
 }
