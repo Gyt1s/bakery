@@ -10,6 +10,7 @@ namespace app;
 
 
 use app\controller\ProductController;
+use app\controller\ProductHistoryController;
 use app\model\Product;
 
 class Bakery
@@ -44,16 +45,27 @@ class Bakery
 
                         break;
 
+                case 'bakery-users' :
+
+                    if ($action == 'new')
+                        (new bakeryUsers())-> create();
+
+                    elseif ($action == 'list')
+                        (new bakeryUsers ())->list ();
+
+                    break;
+
+
             }
 
 
         }
         elseif ($method == 'POST') {
             switch ($view) {
-                case 'product':
+                case 'product-history':
 
                     if ($action == 'create')
-                        $this->show((new ProductController())->store());
+                        (new ProductHistoryController())->store();
 
                     break;
 
@@ -61,12 +73,6 @@ class Bakery
         }
 
        // echo "Bakery online";
-    }
-
-
-    private function show (string $text)
-    {
-        echo $text;
     }
 
 }

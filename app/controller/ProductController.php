@@ -15,12 +15,10 @@ class ProductController
 {
     public function create()
     {
-        $template = new TemplateEngineController('new-product');
-        $template->echoOutput();
-
+        (new TemplateEngineController('new-product'))->echoOutput();
     }
 
-    public function store (): string
+    public function store ()
     {
         //This rows doing same
         //Product::create($_POST);
