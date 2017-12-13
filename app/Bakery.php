@@ -34,6 +34,16 @@ class Bakery
 
                     break;
 
+                case 'product-history' :
+
+                        if ($action == 'new')
+                            (new ProductHistoryController())-> create();
+
+                        elseif ($action == 'list')
+                            (new ProductHistoryController())->list ();
+
+                        break;
+
             }
 
 
