@@ -48,10 +48,10 @@ class Bakery
                 case 'bakery-users' :
 
                     if ($action == 'new')
-                        (new bakeryUsers())-> create();
+                        (new bakeryUsersController())-> create();
 
                     elseif ($action == 'list')
-                        (new bakeryUsers ())->list ();
+                        (new bakeryUsersController ())->list ();
 
                     break;
 
