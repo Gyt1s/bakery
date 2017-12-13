@@ -2,7 +2,7 @@
     <form method="POST" action="?view=bakery-users&action=create"">
 
     <div> Name : </div>
-    <input type="text" name="text"> <br>
+    <input type="text" name="name"> <br>
 
     <div> Surname : </div>
     <input type="text" name="surname"> <br>

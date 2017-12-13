@@ -17,12 +17,8 @@ class Users extends CoreModel implements Manageable, Destroyable
 
     public function create(array $data)
     {
-
         $query = $this->generateInsertQuery($data, true);
-
         $this->db_query($query);
-
-
     }
 
     public function delete()

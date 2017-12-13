@@ -46,10 +46,10 @@ class Bakery
                 case 'bakery-users' :
 
                     if ($action == 'new')
-                        (new bakeryUsersController())->create();
+                        (new BakeryUsersController())->create();
 
                     elseif ($action == 'list')
-                        (new bakeryUsersController ())->list();
+                        (new BakeryUsersController ())->list();
 
                     break;
 
@@ -66,9 +66,6 @@ class Bakery
 
                     break;
 
-            }
-        } elseif ($method == 'POST') {
-            switch ($view) {
                 case 'bakery-users':
 
                     if ($action == 'create')

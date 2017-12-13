@@ -29,8 +29,12 @@ class bakeryUsersController
         //This rows doing same
         //Product::create($_POST);
         //(new Product())->create($_POST);
+
+        $data = $_POST;
+        $data['password'] =  sha1($data['password'] );
+
         $model = new Users();
-        $model->create($_POST);
+        $model->create($data);
 
         //Redirecting to list
         header('Location: ?view=bakery-users&action=list');
