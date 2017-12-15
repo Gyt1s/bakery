@@ -1,0 +1,14 @@
+
+<div style="text-align: center">
+    <form method="POST" action="?view=user&action=auth"">
+
+    <div> Email : </div>
+    <input type="email" name="email"> <br>
+
+    <div> Password : </div>
+    <input type="password" name="password"> <br>
+
+    <input type="submit" value="Prisijungti">
+
+</form>
+</div>

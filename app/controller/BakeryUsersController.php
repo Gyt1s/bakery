@@ -71,7 +71,20 @@ class bakeryUsersController
         $template = new TemplateEngineController('table-list');
         $template->set('header', $header);
         $template->set('date', $date);
+
         $template-> echoOutput();
 
+    }
+
+    public function login()
+    {
+        $template = new TemplateEngineController('login');
+        $template-> echoOutput();
+    }
+
+    public function auth()
+    {
+        $query = "SELECT * FROM`" . $this->table . "`WHERE `deleted_at` IS NULL AND `email` = '" . $data['email'] . "' AND `password` = '" . $data ['password'] . "''";
+        return $this->query($query);
     }
 }

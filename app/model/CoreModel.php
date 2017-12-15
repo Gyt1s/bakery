@@ -77,7 +77,7 @@ class CoreModel
 
     public function list()
     {
-        $query = "SELECT * FROM `" . $this->table . "` WHERE `deleted_at` IS NULL";
+        $query = "SELECT * FROM`" . $this->table . "` WHERE `deleted_at` IS NULL";
         return $this->db_query($query);
     }
 

@@ -18,8 +18,16 @@ class Bakery
     public function __construct()
     {
         $method = $_SERVER['REQUEST_METHOD'];
+
+        if ($method == 'GET' && !isset( $_GET ['view']) && !isset($_GET['action']))
+        {
+            (new BakeryUsersController())->login();
+            die();
+        }
+
         $view = $_GET['view'];
         $action = $_GET['action'];
+
 
         if ($method == 'GET') {
             switch ($view) {
@@ -52,10 +60,7 @@ class Bakery
                         (new BakeryUsersController ())->list();
 
                     break;
-
-
             }
-
 
         } elseif ($method == 'POST') {
             switch ($view) {
@@ -72,8 +77,18 @@ class Bakery
                         (new bakeryUsersController())->store();
 
                     break;
-            }
 
+
+                    case 'users';
+
+                    if ($action == 'create');
+                        (new BakeryUsersController())->store();
+
+                        if ($action == 'login');
+                        (new BakeryUsersController())->auth();
+
+                        break;
+            }
         }
     }
 }
