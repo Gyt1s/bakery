@@ -21,6 +21,13 @@ class Users extends CoreModel implements Manageable, Destroyable
         $this->db_query($query);
     }
 
+    public function auth ($data)
+    {
+        $query = "SELECT * FROM `" . $this->table . "` WHERE `deleted_at` IS NULL AND `email` = '" . $data ['email'] . "' AND `password` = '" . $data ['password'] . "'";
+        return $this->db_query($query);
+    }
+
+
     public function delete()
     {
         // TODO: Implement delete() method.

@@ -31,7 +31,7 @@ class bakeryUsersController
         //(new Product())->create($_POST);
 
         $data = $_POST;
-        $data['password'] =  sha1($data['password'] );
+        $data['password'] =  sha1($data['password'] . SALT);
 
         $model = new Users();
         $model->create($data);
@@ -84,7 +84,24 @@ class bakeryUsersController
 
     public function auth()
     {
-        $query = "SELECT * FROM`" . $this->table . "`WHERE `deleted_at` IS NULL AND `email` = '" . $data['email'] . "' AND `password` = '" . $data ['password'] . "''";
-        return $this->query($query);
+        $data = $_POST;
+        $data['password'] = sha1($_POST['password'] . SALT);
+
+        print_r($data);
+
+
+        $model = new Users ();
+        $result = $model->auth($data);
+
+        print_r($result);
+
+
+
+    }
+
+    public function isLogged()
+    {
+        print_r($_COOKIE);
+
     }
 }

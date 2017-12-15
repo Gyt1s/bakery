@@ -19,11 +19,13 @@ class Bakery
     {
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if ($method == 'GET' && !isset( $_GET ['view']) && !isset($_GET['action']))
-        {
+        if ($method == 'GET' && !isset($_GET ['view']) && !isset($_GET['action'])) {
             (new BakeryUsersController())->login();
             die();
         }
+
+        (new BakeryUsersController())->isLogged();
+
 
         $view = $_GET['view'];
         $action = $_GET['action'];
@@ -79,15 +81,15 @@ class Bakery
                     break;
 
 
-                    case 'users';
+                case 'users';
 
-                    if ($action == 'create');
+                    if ($action == 'create')
                         (new BakeryUsersController())->store();
 
-                        if ($action == 'login');
+                    if ($action == 'auth')
                         (new BakeryUsersController())->auth();
 
-                        break;
+                    break;
             }
         }
     }
