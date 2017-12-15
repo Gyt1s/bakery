@@ -87,21 +87,34 @@ class bakeryUsersController
         $data = $_POST;
         $data['password'] = sha1($_POST['password'] . SALT);
 
-        print_r($data);
-
-
         $model = new Users ();
         $result = $model->auth($data);
 
-        print_r($result);
 
+        //TODO check if result has any rows
 
+        foreach ($result as $key => $value)
+        {
 
+            setcookie('user', $value['id'], time() + 3600);
+            header('Location:?view=product-history&action=new');
+            exit();
+
+        }
     }
 
     public function isLogged()
     {
-        print_r($_COOKIE);
 
+        if (isset($_COOKIE['user']))
+        {
+            $model = new Users();
+            $result = $model->find($_COOKIE['user']);
+
+            if ($result->num_rows != 1)
+                die('Please login');
+        }
+        else
+            die('Please login');
     }
 }
