@@ -36,4 +36,6 @@ class Product extends CoreModel implements Manageable, Destroyable
         // TODO: Implement destroy() method.
     }
 
+
+
 }

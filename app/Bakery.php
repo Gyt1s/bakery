@@ -103,6 +103,8 @@ class Bakery
 
                     if ($action == 'create')
                         (new ProductController())->store();
+                    if ($action == 'update')
+                        (new ProductController())->update ();
 
                     break;
             }

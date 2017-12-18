@@ -87,5 +87,25 @@ class CoreModel
         return $this->db_query($query);
     }
 
+    public function update($id)
+    {
+        $data = $_POST;
+        $options = '';
+
+        foreach ($data as $key => $value)
+        {
+            $options .= " `$key` = '$value',";
+        }
+
+        $options = rtrim($options, ", ");
+
+        $query = "UPDATE `" . $this->table . "` SET" . $options . "WHERE `id`='$id'";
+
+        $query = "SELECT * FROM `" . $this->table . "` WHERE `deleted_at` IS NULL AND `id` = '$id'";
+        return $this->db_query($query);
+
+
+    }
+
 
 }

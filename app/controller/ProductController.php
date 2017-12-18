@@ -96,6 +96,27 @@ class ProductController
            die ('record not found');
 
         $template = new TemplateEngineController('edit-product');
+        $template->set('id', $record['id']);
+        $template->set('ean', $record['ean']);
+        $template->set('unit', $record['unit']);
+        $template->set('name', $record['name']);
+        $template->set('weight', $record['weight']);
+        $template->set('prime_cost', $record['prime_cost']);
+        $template->set('sale_price', $record['sale_price']);
+        $template->set('picture', $record['picture']);
+
+
+        $template->echoOutput();
+    }
+
+    public function update()
+    {
+        $model = new Product();
+        $model->update($_GET['id']);
+
+        header('Location: ?view=product&action=list');
+        exit();
+
     }
 
 }
