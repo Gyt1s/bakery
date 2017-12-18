@@ -113,6 +113,9 @@ class bakeryUsersController
 
             if ($result->num_rows != 1)
                 die('Please login');
+
+            setcookie('user', $_COOKIE['user'], time() + 3600);
+
         }
         else
             die('Please login');

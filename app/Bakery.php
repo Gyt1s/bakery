@@ -94,6 +94,14 @@ class Bakery
                         (new BakeryUsersController())->auth();
 
                     break;
+
+                case 'product':
+
+                    (new BakeryUsersController())->isLogged();
+                    if ($action == 'create')
+                        (new ProductController())->store();
+
+                    break;
             }
         }
     }

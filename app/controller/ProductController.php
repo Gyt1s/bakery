@@ -23,8 +23,14 @@ class ProductController
         //This rows doing same
         //Product::create($_POST);
         //(new Product())->create($_POST);
+        print_r($_POST);
+        print_r($_FILES);
+        die();
+
          $model = new Product();
          $model->create($_POST);
+
+
 
          //Redirecting to list
          header('Location: ?view=product&action=list');
