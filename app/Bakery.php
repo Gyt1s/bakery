@@ -40,6 +40,8 @@ class Bakery
 
                     elseif ($action == 'list')
                         (new ProductController())->list();
+                    elseif ($action == 'edit')
+                        (new ProductController())->edit ();
 
                     break;
 
@@ -98,6 +100,7 @@ class Bakery
                 case 'product':
 
                     (new BakeryUsersController())->isLogged();
+
                     if ($action == 'create')
                         (new ProductController())->store();
 

@@ -23,12 +23,17 @@ class ProductController
         //This rows doing same
         //Product::create($_POST);
         //(new Product())->create($_POST);
-        print_r($_POST);
-        print_r($_FILES);
-        die();
+
+        $data = $_POST;
+        $destination = 'uploads/' . $_FILES['picture']['name'];
+
+        move_uploaded_file($_FILES['picture']['tmp_name'], $destination);
+
+        $data['picture'] = $destination;
+
 
          $model = new Product();
-         $model->create($_POST);
+         $model->create($data);
 
 
 
@@ -42,7 +47,7 @@ class ProductController
         $model = new Product();
         $result = ($model->list ());
         $header = '';
-        $date = '';
+        $data = '';
 
         foreach ($result as $item)
         {
@@ -54,21 +59,43 @@ class ProductController
                 }
             }
 
-            $date .= '<tr>';
+
+            $data .= '<tr onclick="window.location=\'?view=product&action=edit&id=' . $item['id'] . '\'">';
 
             foreach ($item as $key => $value)
             {
-                $date .= '<td>' . $value .= '</td>';
+                if ($key == 'picture')
+                    $data .= '<td><img src="' . $value . '" width="200px"></td>';
+                else
+                    $data .= '<td>' . $value .= '</td>';
             }
 
-            $date .=  '</tr>';
+            $data .= '</a>';
+            $data .=  '</tr>';
         }
 
         $template = new TemplateEngineController('table-list');
         $template->set('header', $header);
-        $template->set('date', $date);
+        $template->set('date', $data);
         $template-> echoOutput();
 
+    }
+
+    public function edit()
+    {
+        $model = new Product();
+       $result = $model->find($_GET['id']);
+       $record = null;
+
+        foreach ($result as $value)
+        {
+            $record = $value;
+
+        }
+       if (!$record)
+           die ('record not found');
+
+        $template = new TemplateEngineController('edit-product');
     }
 
 }

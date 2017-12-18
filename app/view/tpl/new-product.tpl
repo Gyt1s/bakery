@@ -24,7 +24,7 @@
     <input type="number" step="0.001" name="sale_price">
 
     <div> Nuotrauka :</div>
-    <input type="file" multiple accept="image/jpeg, image/png" name="picture[]"> <br>
+    <input type="file" multiple accept="image/jpeg, image/png" name="picture"> <br>
 
     <input type="submit" class="btn btn-dark" value="Issaugoti duomenys"> <br>
 
